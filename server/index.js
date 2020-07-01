@@ -1,16 +1,41 @@
 const express = require("express");
 const path = require("path");
+const { db } = require("./db");
 
 const app = express();
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 5000;
 
-app.use(express.static(path.join(__dirname, "client/build")));
+const syncDb = () => db.sync();
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/client/build/index.html"));
-});
+const setupServer = async () => {
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: true }));
 
-app.listen(port);
+  app.use(express.static(path.join(__dirname, "client/build")));
 
-console.log("Listening on port " + port);
+  app.use("/api", require("./api"));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname + "/client/build/index.html"));
+  });
+};
+
+const bootServer = async () => {
+  try {
+    await syncDb();
+    await setupServer();
+    app.listen(port);
+    console.log("Listening on port " + port);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+if (require.main === module) {
+  bootServer();
+} else {
+  setupServer();
+}
+
+module.exports = app;
