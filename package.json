@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha server/api/tests",
     "start": "node server",
-    "seed": "node script/seed.js"
+    "seed": "node script/seed.js",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
