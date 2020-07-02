@@ -3,7 +3,7 @@ const { Employee } = require("../db");
 
 router.get("/", async (req, res, next) => {
   try {
-    const employees = await Employee.findAll();
+    const employees = await Employee.findAll({ order: [["lastName", "ASC"]] });
     res.send(employees);
   } catch (err) {
     next(err);

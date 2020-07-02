@@ -1,4 +1,4 @@
-const { db, Employee } = require("../server");
+const { db, Employee } = require("../server/db");
 
 const {
   randomEmployees,
