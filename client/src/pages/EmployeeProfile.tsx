@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import { apiRequest } from "../modules/api";
 import { Employee } from "../types";
 import Loader from "../components/Loader";
+import EditEmployee from "./employeeProfile/EditEmployee";
+import DeleteEmployee from "./employeeProfile/DeleteEmployee";
 import BackLink from "../components/BackLink";
 
 interface RouteParams {
@@ -81,6 +83,14 @@ const EmployeeProfile = () => {
               Ask Me About:{" "}
             </Col>
             <Col>{employee.interests}</Col>
+          </Row>
+          <Row className="mb-5">
+            <Col xs="auto pl-0">
+              <EditEmployee employee={employee} />
+            </Col>
+            <Col xs="auto">
+              <DeleteEmployee employee={employee} />
+            </Col>
           </Row>
         </>
       );

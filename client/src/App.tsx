@@ -5,6 +5,7 @@ import { createBrowserHistory } from "history";
 import EmployeeProfile from "./pages/EmployeeProfile";
 import Wrapper from "./components/Wrapper";
 import { Container } from "reactstrap";
+import NewEmployee from "./pages/NewEmployee";
 
 const history = createBrowserHistory();
 
@@ -15,6 +16,7 @@ function App() {
         <Container>
           <Switch>
             <Route exact path="/employees" component={Directory} />
+            <Route exact path="/employees/create" component={NewEmployee} />
             <Route exact path="/employees/:id" component={EmployeeProfile} />
             <Route path="/" component={Directory} />
           </Switch>
