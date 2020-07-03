@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-const { db } = require("./db");
+const { db } = require("./server/db");
 
 const app = express();
 
@@ -14,7 +14,7 @@ const setupServer = async () => {
 
   app.use(express.static(path.join(__dirname, "client/build")));
 
-  app.use("/api", require("./api"));
+  app.use("/api", require("./server/api"));
 
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname + "/client/build/index.html"));

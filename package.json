@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha server/api/tests",
-    "start": "node server",
+    "start": "node index.js",
     "seed": "node script/seed.js",
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
