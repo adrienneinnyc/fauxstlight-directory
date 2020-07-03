@@ -13,4 +13,4 @@ The directory is built using Node, Express, React with TypeScript, PostgreSQL fo
 
 ### Gaps
 
-I didn't have time to add features like pagination, filtering, or search, or any front end testing. Error handling and form validations are also a little meager right now. I would have liked to add notifications/confirmations when a user deletes or add a user as well. Right now, the list updates, but the user would have to scroll to confirm the user is now part of the directory.
+A glaring gap is lack of user permissions---right now, just anyone can add, edit, or delete an employee. I also didn't have time to add features like pagination, filtering, or search, or any front end testing. Error handling and form validations are also a little meager right now. I would have liked to add notifications/confirmations when a user deletes or add a user as well. Right now, the list updates, but the user would have to scroll to confirm the user is now part of the directory.
